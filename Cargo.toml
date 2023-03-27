@@ -1,0 +1,22 @@
+[package]
+name = "cargo-dev"
+description = "Alias shell commands (think NPM scripts for cargo)"
+version = "0.0.1"
+authors = ["MNThomson"]
+repository = "https://github.com/MNThomson/cargo-dev"
+license = "MIT"
+readme = "README.md"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.1", features = ["derive"] }
+execute = "0.2.11"
+serde = { version = "1.0.158", features = ["derive"] }
+toml = "0.7.3"
+
+[[bin]]
+path = "src/main.rs"
+name = "cargo-dev"
+
+[dev]
+dev = "echo hello && sleep 1 && echo world"
