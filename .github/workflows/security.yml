@@ -24,3 +24,18 @@ jobs:
           path: ./
           base: ${{ github.event.repository.default_branch }}
           head: HEAD
+
+  audit:
+    name: Cargo audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Rust env
+        uses: ./.github/actions/setup-rust-env
+
+      - name: Install Cargo Audit
+        run: cargo install cargo-audit
+
+      - name: Cargo Audit
+        run: cargo audit
