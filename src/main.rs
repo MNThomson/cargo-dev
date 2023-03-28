@@ -33,7 +33,7 @@ fn main() {
 
 fn exec(exec_cmd: &str) {
     let mut cmd = Command::new("bash")
-        .args(vec!["-c", exec_cmd.as_ref()])
+        .args(vec!["-c", exec_cmd])
         .env_clear()
         .stdout(Stdio::piped())
         .spawn()
@@ -64,5 +64,5 @@ fn get_cmd(name: &String) -> String {
     let cargo_commands = cmd_toml.dev;
     let specific_command = cargo_commands.get(name).expect("ASD");
 
-    return specific_command.to_string();
+    specific_command.to_string()
 }
